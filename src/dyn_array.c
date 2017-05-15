@@ -77,7 +77,7 @@ void darray_destroy(darray_t *a)
     free(a);
 }
 
-size_t darray_size(darray_t *a) 
+size_t darray_size(const darray_t *a) 
 {
     if(!a) 
         return 0;
@@ -85,7 +85,7 @@ size_t darray_size(darray_t *a)
     return a->size;
 }
 
-int darray_empty(darray_t *a) 
+int darray_empty(const darray_t *a) 
 {
     if(!a) 
         return true;
@@ -93,7 +93,7 @@ int darray_empty(darray_t *a)
     return a->size;
 }
 
-item_t darray_get(darray_t *a, size_t pos) 
+item_t darray_get(const darray_t *a, size_t pos) 
 {
     static item_t empty = {.pointer = NULL};
     if(!a) 
@@ -115,7 +115,7 @@ item_t* darray_buffer(darray_t *a)
     if(!a) {
         return NULL;
     }
-    
+
     return a->buffer;
 }
 
@@ -135,7 +135,7 @@ void darray_foreach(darray_t *array, void *result, each_func func)
     }
 }
 
-void darray_copy(darray_t *from, darray_t *to) 
+void darray_copy(const darray_t *from, darray_t *to) 
 {
     if(!from || !to) 
         return;
@@ -158,7 +158,7 @@ void darray_filter(darray_t *from, darray_t *to, pred_func predicate)
     }
 }
 
-darray_t * darray_clone(darray_t *origin) 
+darray_t * darray_clone(const darray_t *origin) 
 {
     if(!origin) 
         return NULL;

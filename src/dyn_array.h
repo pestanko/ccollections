@@ -24,18 +24,18 @@ void darray_push(darray_t *a, entity_t element);
 void darray_free(darray_t *a);
 void darray_destroy(darray_t *a);
 
-size_t darray_size(darray_t *a);
+size_t darray_size(const darray_t *a);
 entity_t *darray_buffer(darray_t *a);
-int darray_empty(darray_t *a);
+int darray_empty(const darray_t *a);
 
-entity_t darray_get(darray_t *a, size_t pos);
+entity_t darray_get(const darray_t *a, size_t pos);
 void darray_set(darray_t *a, size_t pos, entity_t val);
 
 void darray_foreach(darray_t *array, void *result, each_func func);
 void darray_filter(darray_t *from, darray_t *to, pred_func predicate);
 
-void darray_copy(darray_t *from, darray_t *to);
-darray_t *darray_clone(darray_t *origin);
+void darray_copy(const darray_t *from, darray_t *to);
+darray_t *darray_clone(const darray_t *origin);
 
 
 #endif //__COLLECTIONS_DYN_ARRAY__
